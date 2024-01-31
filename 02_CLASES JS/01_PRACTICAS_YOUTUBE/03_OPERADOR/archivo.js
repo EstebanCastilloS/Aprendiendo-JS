@@ -44,3 +44,35 @@ c--;
 c -= 2;
 
 document.write("El valor de c es: " + c + "<br>");
+
+
+let valor1, valor2;
+
+valor1 = 20;
+valor2 = 10;
+
+//comparar si valor1 es mayor que valor2
+document.write("El valor1 es mayor que valor2: " + (valor1 > valor2) + "<br>");
+
+//comparar si valor1 es menor que valor2
+document.write("El valor1 es menor que valor2: " + (valor1 < valor2) + "<br>");
+
+//comparar si valor1 es mayor o igual que valor2
+document.write("El valor1 es mayor o igual que valor2: " + (valor1 >= valor2) + "<br>");
+
+//comparar si valor1 es menor o igual que valor2
+document.write("El valor1 es menor o igual que valor2: " + (valor1 <= valor2) + "<br>");
+
+//comparar si valor1 es igual que valor2
+document.write("El valor1 es igual que valor2: " + (valor1 == valor2) + "<br>");
+
+//comparar si valor1 es diferente que valor2
+document.write("El valor1 es diferente que valor2: " + (valor1 != valor2) + "<br>");
+
+//comparar si valor1 es igual que valor2 y del mismo tipo
+document.write("El valor1 es igual que valor2 y del mismo tipo: " + (valor1 === valor2) + "<br>");
+
+//comparar si valor1 es diferente que valor2 o de diferente tipo
+document.write("El valor1 es diferente que valor2 o de diferente tipo: " + (valor1 !== valor2) + "<br>");
+
+
