@@ -39,3 +39,10 @@ let persona_1 = {
 const copia_persona1 = {...persona_1, edad: 32, telefono: '555-5555', email: 'esteban@gmail.com'};
 console.log(copia_persona1);
 
+//Funciones flechas
+const sumar = (a, b) => a + b;
+console.log(sumar(2, 3));
+
+const saludar = nombre => `Hola ${nombre}`;
+console.log(saludar('Esteban'));
+
