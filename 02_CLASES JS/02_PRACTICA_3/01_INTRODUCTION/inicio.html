@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>INTRODUCCIÓN</h2>
+
+    <h3>01 --JavaScript Can Change HTML Content--</h3>
+    <h4>One of many JavaScript HTML methods is getElementById().</h4>
+    <h4>The example below "finds" an HTML element (with id="demo"), and changes the element content (innerHTML) to "Hello JavaScript":</h4>
+
+    <p id="demo">JavaScript can change HTML content.</p>
+    <button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>Cambiar</button>
+    <button type="button" onclick='document.getElementById("demo").innerHTML = "JavaScript can change HTML content."'>Regresar</button>
+    <br><br><br>
+
+
+    <h3>02 --JavaScript Can Change HTML Attribute Values--</h3> 
+    <h4>In this example JavaScript changes the value of the src (source) attribute of an <img> tag:</h4>
+    <button onclick="document.getElementById('myImage').src='https://www.w3schools.com/js/pic_bulbon.gif'">Encendido</button>
+
+    <img id="myImage" src="https://www.w3schools.com/js/pic_bulboff.gif" style="width:100px">
+
+    <button onclick="document.getElementById('myImage').src='https://www.w3schools.com/js/pic_bulboff.gif'">Apagado</button>
+
+    <h3>03 --JavaScript Can Change HTML Styles (CSS)--</h3> 
+    <h4>Changing the style of an HTML element, is a variant of changing an HTML attribute:</h4>
+
+    <p id="demostyle">JavaScript can change the style of an HTML element.</p>
+
+    <button type="button" onclick="document.getElementById('demostyle').style.fontSize='35px'">Agrandar</button>
+
+    <h3>04 -- JavaScript Can Hide HTML Elements --</h3> 
+    <h4>Hiding HTML elements can be done by changing the display style:</h4>
+
+    <p id="demohidden">JavaScript can hide HTML elements.</p>
+
+    <button type="button" onclick="document.getElementById('demohidden').style.display='none'">Ocultar</button>
+    <button type="button" onclick="document.getElementById('demohidden').style.display='block'">Aparecer</button>
+
+    <script src="archivo_intro.js"></script>
+</body>
+</html>
