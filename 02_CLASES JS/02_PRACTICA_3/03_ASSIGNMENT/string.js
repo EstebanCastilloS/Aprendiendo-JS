@@ -1,3 +1,4 @@
+
 // Prueba String
 
 // ----------------Información básica y concatenación de cadenas----------------
@@ -136,4 +137,207 @@ console.log( string.charCodeAt(4) ); // 111
 
 // Si su cadena está encerrada entre comillas simples, debe escapar las comillas 
 // literales interiores con la barra invertida \
+
+var text = 'L\'albero means tree in Italian';
+console.log( text );  "L'albero means tree in Italian"
+
+//---------------------Contador de palabras---------------------
+
+//https://jsfiddle.net/RokoCB/5nfay7d1/206/
+
+// function wordCount( val )
+// {
+//     let wom = val.match(/\S+/g);
+    
+//     return {
+//     charactersNoSpaces : val.replace(/\s+/g, '').length,
+//     characters : val.length,
+//     words : wom ? wom.length : 0,
+//     lines : val.split(/\r*\n/).length
+//     };
+// }
+   
+// // Use like:
+// wordCount( someMultilineText ).words; // (Number of words)
+
+// var textarea = document.getElementById("text");
+// var result   = document.getElementById("result");
+
+// textarea.addEventListener("input", function(){
+//   var v = wordCount( this.value );
+//   result.innerHTML = (
+//       "<br>Characters (no spaces):  "+ v.charactersNoSpaces +
+//       "<br>Characters (and spaces): "+ v.characters +
+//       "<br>Words: "+ v.words +
+//       "<br>Lines: "+ v.lines
+//   );
+// }, false);
+
+// ---------------------Trim whitespace--------------------
+
+//Para recortar los espacios en blanco de los bordes de una cadena, utilice String.prototype.trim:
+
+console.log("      some whitespaced string ".trim()); 
+// "some whitespaced string"
+
+// Muchos motores JavaScript, pero no Internet Explorer, han implementado métodos trimLeft 
+// y trimRight no estándar. Existe una propuesta, actualmente en la fase 1 del proceso, 
+// para estandarizar los métodos trimStart y trimEnd, con los alias trimLeft y trimRight 
+// por motivos de compatibilidad.
+
+// Stage 1 proposal
+console.log("      this is me     ".trimStart()); 
+// "this is me "
+console.log("      this is me     ".trimEnd()); 
+// " this is me"
+
+
+// Non-standard methods, but currently implemented by most engines
+console.log("      this is me     ".trimLeft()); // "this is me "
+console.log("      this is me     ".trimRight()); // " this is me"
+
+// ---------------------Splitting a string into an array--------------------
+
+var s = "one, two, three, four, five"
+console.log(s.split(", ")); 
+// ["one", "two", "three", "four", "five"]
+
+//Utiliza el método array .join para volver a una cadena:
+
+console.log(s.split(", ").join("--")); 
+// "one--two--three--four--five"
+
+// ---------------------Detecting a string--------------------
+
+//Para detectar si un parámetro es una cadena primitiva, utilice typeof:
+
+var aString = "my string";
+var anInt = 5;
+var anObj = {};
+console.log(typeof aString === "string"); // true
+console.log(typeof anInt === "string"); // false
+console.log(typeof anObj === "string"); // false
+
+// Si alguna vez tienes un objeto String, mediante new String("somestr"), 
+// entonces lo anterior no funcionará. En este caso, podemos utilizar instanceof:
+
+var aStringObj = new String("my string");
+aStringObj instanceof String; // true
+
+// Para cubrir ambos casos, podemos escribir una sencilla función de ayuda: 
+
+var isString = function(value) {
+    return typeof value === "string" || value instanceof String;
+};
+
+var aString = "Primitive String";
+var aStringObj = new String("String Object");
+console.log(isString(aString)); // true
+console.log(isString(aStringObj)); // true
+console.log(isString({})); // false
+console.log(isString(5)); // false
+
+var pString = "Primitive String";
+var oString = new String("Object Form of String");
+console.log(Object.prototype.toString.call(pString));//"[object String]"
+console.log(Object.prototype.toString.call(oString));//"[object String]"
+
+// ---------------------String Find and Replace Functions--------------------
+
+// indexOf() devuelve el índice de la primera aparición de searchString en la cadena. 
+// Si no se encuentra searchString, se devuelve -1.
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
+
+var string = "Hello, World!";
+console.log( string.indexOf("o") ); // 4
+console.log( string.indexOf("foo") ); // -1
+
+// Del mismo modo, lastIndexOf() devolverá el índice de la última aparición de la cadena de búsqueda
+//  o -1 si no se encuentra.
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf
+
+var string = "Hello, World!";
+console.log( string.lastIndexOf("o") ); // 8
+console.log( string.lastIndexOf("foo") ); // -1
+
+// includes() devolverá un booleano que indica si searchString existe en la cadena, 
+// empezando por el inicio del índice (por defecto es 0). Esto es mejor que indexOf() 
+// si sólo necesita comprobar la existencia de una subcadena.
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
+
+var string = "Hello, World!";
+console.log( string.includes("Hello") ); // true
+console.log( string.includes("foo") ); // false
+
+// replace() devolverá una cadena que tiene todas las ocurrencias de subcadenas que coinciden 
+// con la regexp RegExp o la subcadena de cadena con un reemplazo de cadena o el valor devuelto 
+// de replaceFunction. 
+
+//Tenga en cuenta que esto no modifica la cadena en su lugar, sino que devuelve la cadena con los reemplazos.
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+
+var string = "Hello, World!";
+
+string = string.replace( "Hello", "Bye" );
+console.log( string ); // "Bye, World!"
+
+string = string.replace( /W.{3}d/g, "Universe" );
+console.log( string ); // "Bye, Universe!"
+
+// replaceFunction puede utilizarse para sustituciones condicionales de objetos de expresiones regulares 
+// (es decir, con el uso de regexp). Los parámetros están en el orden siguiente: 
+
+// match: la subcadena que coincide con toda la expresión regularg 
+// g1, g2, g3, ...: los grupos coincidentes en la expresión regular 
+// offset: el desplazamiento de la coincidencia en toda la cadena 
+// cadena: la cadena completa
+
+//Tenga en cuenta que todos los parámetros son opcionales.
+
+var string = "heLlo, woRlD!";
+
+string = string.replace( /([a-zA-Z])([a-zA-Z]+)/g, function(match, g1, g2) {
+    return g1.toUpperCase() + g2.toLowerCase();
+});
+console.log( string ); // "Hello, World!"
+
+//El método .indexOf devuelve el índice de una subcadena dentro de otra cadena 
+//(si existe, o -1 en caso contrario)
+
+console.log('Hellow World'.indexOf('Wor')); 
+
+// .indexOf también acepta un argumento numérico adicional que indica en qué índice 
+// debe empezar a buscar la función
+
+console.log("harr dee harr dee harr".indexOf("dee", 10)); // 14
+
+//---------------------: String to Upper Case--------------------
+
+console.log('qwerty'.toUpperCase()); // 'QWERTY'
+
+//---------------------: String to Lower Case--------------------
+
+console.log('QWERTY'.toLowerCase()); // 'qwerty'
+
+//---------------------:  Repeat a String--------------------
+
+//El método repeat() construye y devuelve una nueva cadena que contiene 
+//el número especificado de copias de la cadena en la que se llama.
+
+//https://262.ecma-international.org/6.0/#sec-string.prototype.repeat
+
+//convertir string a entero javascript
+
+console.log(typeof(num))
+console.log("abc".repeat(3)); // Returns "abcabcabc"
+console.log("abc".repeat(0)); // Returns ""
+// console.log("abc".repeat(-1)); // Throws a RangeError
+
+
+
+
 
