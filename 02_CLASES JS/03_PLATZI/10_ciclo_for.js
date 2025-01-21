@@ -3,12 +3,12 @@
     
 // }
 
-let list = ["eat", "sleep", "code", "sex", "repeat"]
+// let list = ["eat", "sleep", "code", "sex", "repeat"]
 
-for (let i = 0; i < list.length; i++) {
-    const element = list[i];
+// for (let i = 0; i < list.length; i++) {
+//     const element = list[i];
     
-}
+// }
 
 //-----------------FOR OF---------------------
 // for (const element of object) {
@@ -17,6 +17,7 @@ for (let i = 0; i < list.length; i++) {
 
 let conasta = ["manzana","pera","naranja","uva"]
 
+console.log("for of")
 for (const fruta of canasta) {
     console.log(fruta)
 }
@@ -31,22 +32,22 @@ for (const fruta of canasta) {
 // }
 
 
-const listaCompra = {
-    manzana: 5,
-    pera: 3,
-    naranja: 2,
-    uva:1
-}
+// const listaCompra = {
+//     manzana: 5,
+//     pera: 3,
+//     naranja: 2,
+//     uva:1
+// }
 
-for (fruta in listaCompra)
-{
-    console.log(fruta)
-}
+// for (fruta in listaCompra)
+// {
+//     console.log(fruta)
+// }
 
-for (fruta in listaCompra)
-{
-    console.log(`${fruta}: ${listaCompra[fruta]}`)
-}
+// for (fruta in listaCompra)
+// {
+//     console.log(`${fruta}: ${listaCompra[fruta]}`)
+// }
 
 //--------------------- WHILE -----------------
 
@@ -54,13 +55,13 @@ for (fruta in listaCompra)
     
 // }
 
-let contador = 0;
+// let contador = 0;
 
-while (contador < 10)
-{
-    console.log(contador)
-    contador++
-}
+// while (contador < 10)
+// {
+//     console.log(contador)
+//     contador++
+// }
 
 //--------------------- DO WHILE -----------------
 
@@ -69,7 +70,7 @@ while (contador < 10)
 // } while (condition);
 
 
-do {
-    console.log(contador)
-    contador++
-} while (contador < 10);
+// do {
+//     console.log(contador)
+//     contador++
+// } while (contador < 10);
